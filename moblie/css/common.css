@@ -1,0 +1,172 @@
+/**
+ * @fileoverview  公用样式,包括： 进度条、按钮、提示信息、表单等
+ * @author liuweichao
+ * @version v1
+ * @build 2016-10-11
+ */
+@charset "utf-8";
+.toLine {
+  word-wrap: break-word;
+  word-break: normal;
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+div {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  width: 10rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+  overflow: hidden;
+  height: 0;
+}
+ul,
+ol,
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+img {
+  border: none;
+  outline: none;
+  vertical-align: top;
+  max-width: 100%;
+}
+input {
+  opacity: 1;
+  outline: none;
+  background: none;
+  text-align: center;
+}
+button {
+  border: none;
+}
+.poa {
+  position: absolute;
+}
+.bg {
+  width: 100%;
+}
+.mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 999;
+}
+.mask img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: fixed;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('../fonts/iconfont.eot');
+  src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'), url('../fonts/iconfont.woff') format('woff'), url('../fonts/iconfont.ttf') format('truetype'), url('../fonts/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 8px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+}
+[data-dpr="2"] .iconfont {
+  font-size: 16px;
+}
+[data-dpr="2.5"] .iconfont {
+  font-size: 20px;
+}
+[data-dpr="2.75"] .iconfont {
+  font-size: 22px;
+}
+[data-dpr="3"] .iconfont {
+  font-size: 24px;
+}
+[data-dpr="4"] .iconfont {
+  font-size: 32px;
+}
+.icon-shop:before {
+  content: "\e600";
+}
+.icon-iconfontmy:before {
+  content: "\e601";
+}
+.icon-select:before {
+  content: "\e608";
+}
+.icon-fanhui:before {
+  content: "\e602";
+}
+.icon-order:before {
+  content: "\e603";
+}
+.icon-group:before {
+  content: "\e604";
+}
+.icon-checkcircle:before {
+  content: "\e605";
+}
+.icon-checkcircleoutlineblank:before {
+  content: "\e606";
+}
+.icon-keyboardarrowright:before {
+  content: "\e607";
+}
+#div {
+  width: 10rem;
+  height: 4.6875rem;
+  font-size: 16px;
+  background-color: #ccc;
+  border-bottom: 1px solid red;
+}
+[data-dpr="2"] #div {
+  font-size: 32px;
+}
+[data-dpr="2.5"] #div {
+  font-size: 40px;
+}
+[data-dpr="2.75"] #div {
+  font-size: 44px;
+}
+[data-dpr="3"] #div {
+  font-size: 48px;
+}
+[data-dpr="4"] #div {
+  font-size: 64px;
+}

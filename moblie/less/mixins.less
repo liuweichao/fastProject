@@ -1,0 +1,96 @@
+// Mixins
+// --------------------------------------------------
+.centerMiddle(@x:50%,@y:50%){
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-@x,-@y);
+}
+.blockCenter(@x:50%,@t:0){
+  position: absolute;
+  left: 50%;
+  top: @t;
+  transform: translate(-@x,0);
+}
+.blockMiddle(@l:0,@y:50%){
+  position: absolute;
+  left: @l;
+  top: 50%;
+  transform: translate(0,-@y);
+}
+.fHM(@_,@M){
+
+}
+.fHM(center,@M){
+  text-align: center;
+  line-height: @M;
+}
+.fHM(left,@M){
+  text-align: left;
+  line-height: @M;
+}
+.fHM(right,@M){
+  text-align: right;
+  line-height: @M;
+}
+.dot(@width){
+  max-width: 100%;
+  width: @width;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.triangle(@_,@width:10px,@color:red){
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.triangle(top,@width:10px,@color:red){
+  border-width: @width;
+  border-color: transparent transparent @color transparent;
+  border-style:dashed dashed solid dashed;
+}
+.triangle(bottom,@width:10px,@color:red){
+  border-width: @width;
+  border-color:@color transparent transparent transparent;
+  border-style:solid dashed dashed dashed;
+}
+.triangle(right,@width:10px,@color:red){
+  border-width: @width;
+  border-color: transparent transparent transparent @color;
+  border-style:dashed dashed dashed solid;
+}
+.triangle(left,@width:10px,@color:red){
+  border-width: @width;
+  border-color: transparent @color transparent transparent;
+  border-style:dashed solid dashed dashed;
+}
+.toLine{
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.px2rem(@name, @px){
+    @{name}: @px / 64 * 1rem;
+}
+.px2px(@name, @px){
+    @{name}: round(@px / 2) * 1px;
+    [data-dpr="2"] & {
+        @{name}: @px * 1px;
+    }
+    // for mx3
+    [data-dpr="2.5"] & {
+        @{name}: round(@px * 2.5 / 2) * 1px;
+    }
+    // for 小米note
+    [data-dpr="2.75"] & {
+        @{name}: round(@px * 2.75 / 2) * 1px;
+    }
+    [data-dpr="3"] & {
+        @{name}: round(@px / 2 * 3) * 1px
+    }
+    // for 三星note4
+    [data-dpr="4"] & {
+        @{name}: @px * 2px;
+    }
+}

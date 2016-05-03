@@ -1,0 +1,27 @@
+/**
+ * @fileoverview  公用样式,包括： 进度条、按钮、提示信息、表单等
+ * @author liuweichao
+ * @version v1
+ * @build 2016-10-11
+ */
+
+@charset "utf-8";
+
+// Core variables and mixins
+@import "variables";
+@import "mixins";
+
+// CSS Reset
+@import "reset";
+// @import "grid.less";
+
+//icons
+@import "glyphicons";
+
+#div{
+	.px2rem(width, 640);
+	.px2rem(height, 300);
+	.px2px(font-size, 32);
+	background-color: #ccc;
+	border-bottom: 1px solid red;
+}
