@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../../css/common.css"/>
+    <link rel="stylesheet" href="jquery.fancybox.css"/>
+    <style type="text/css">
+		a>img{
+			width: 100px;
+		}
+    </style>
+</head>
+<body>
+<a href="../../../img/test.jpg" title="1" data-fancybox-group="gallery"><img src="../../../img/test.jpg" /></a>
+<a href="../../../img/test.jpg" title="2" data-fancybox-group="gallery"><img src="../../../img/test.jpg" /></a>
+<a href="../../../img/test.jpg" title="3" data-fancybox-group="gallery"><img src="../../../img/test.jpg" /></a>
+<a href="../../../img/test.jpg" title="4" data-fancybox-group="gallery"><img src="../../../img/test.jpg" /></a>
+<a href="../../../img/test.jpg" title="5" data-fancybox-group="gallery"><img src="../../../img/test.jpg" /></a>
+</body>
+<script>
+    var timesTamp = "1";
+    var require = {
+        baseUrl: '../../../js',
+        shim: {
+            swiper: ['jquery'],
+            lazyload: ['jquery'],
+            fancybox: ['jquery','mousewheel']
+        },
+        paths: {
+            jquery:[ 'jquery'],
+            vue:['plugins/vue/vue.min'],
+            swiper:['plugins/swiper/swiper.jquery.min'],
+            moment:['plugins/moment.min'],
+            lazyload:['plugins/jquery.lazyload/jquery.lazyload'],
+            fancybox:['plugins/jquery.fancybox/jquery.fancybox'],
+            mousewheel:['jquery.mousewheel'],
+            common:['common'],
+            Validator:'Validator'
+        },
+        //urlArgs: "v=" + (new Date()).getTime()
+        urlArgs: "v="+ timesTamp
+    };
+</script>
+<script src="../../require.js"></script>
+<script>
+    require(['jquery','lazyload','fancybox'], function ($,lazyload,fancybox) {
+
+        //懒加载
+        if(($.lazyload||$.fn.lazyload) != null){
+            $('img').lazyload({
+                placeholder:'img/loading.gif',
+                threshold: 100,
+                effect: "fadeIn",
+                data_attribute  : "src"
+
+            });
+        }
+
+        //图片预览
+         if($.fn.fancybox != null){
+             $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.png'],a[href$='.gif']").attr('rel', 'gallery').fancybox();
+         }
+
+        // 返回顶部
+        (function(){
+            var goTop = $('<div id="goTop"> <span class="icon icon-chevron-up"></span> </div>');
+            goTop.appendTo($("body"));
+
+            $(window).scroll(function(ev) {
+                if($(window).scrollTop() > 100) {
+                    goTop.fadeIn();
+                    $('.nav').addClass('fixedNav');
+                } else {
+                    goTop.fadeOut();
+                    $('.nav').removeClass('fixedNav');
+                }
+            });
+
+            goTop.click(function() {
+                $("body, html").stop().animate({scrollTop: 0});
+            });
+        })();
+
+
+    });
+</script>
+</html>
