@@ -1,5 +1,4 @@
-
-define(['jquery','lazyload'], function ($,lazyload) {
+define(['jquery','lazyload'], function (jquery,lazyload) {
 
     //懒加载
     if(($.lazyload||$.fn.lazyload) != null){
@@ -7,15 +6,9 @@ define(['jquery','lazyload'], function ($,lazyload) {
             placeholder:'img/loading.gif',
             threshold: 100,
             effect: "fadeIn",
-            data_attribute  : "src"
-
+            data_attribute  : "lazyloadSrc"
         });
     }
-
-    //图片预览
-    // if($.fn.fancybox != null){
-    //     $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.png'],a[href$='.gif']").attr('rel', 'gallery').fancybox();
-    // }
 
     // 返回顶部
     (function(){
@@ -37,27 +30,5 @@ define(['jquery','lazyload'], function ($,lazyload) {
         });
     })();
 
-    // 验证
-    // var validatorFunc = function(){
-    //     var validator = new Validator();
-    //
-    //     var $required = $('[required]');
-    //
-    //     $required.each(function (index, ele) {
-    //         validator.add(ele,[{
-    //             strategy:'isNonEmpty',
-    //             errorMsg:ele.placeholder
-    //         }]);
-    //     });
-    //
-    //
-    //     var errorMsg = validator.start();
-    //     return errorMsg;
-    // };
-    //
-    //
-    // return {
-    //
-    // }
 
 });

@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="css/common.css"/>
-    <link rel="stylesheet" href="plugins/slider/slider.css"/>
-    <link rel="stylesheet" href="plugins/slider/default/default.css"/>
-    <link rel="stylesheet" href="plugins/datetimepicker/datetimepicker.css"/>
     <style>
         body{
             padding-bottom: 500px;;
@@ -19,6 +16,14 @@
         }
         .test a{
             /*background-image: linear-gradient(to bottom, #B4DAEC, #0044cc);*/
+        }
+        .swiper-container {
+            height: 300px;
+        }
+        .img img{
+            width: 100%;
+            height: 2398px;
+
         }
     </style>
 </head>
@@ -496,84 +501,18 @@
 </div>
 
 <hr/>
-
+<div id="app">
+    <swiper :items="message"></swiper>
+</div>
+<div id="app2">
+    <swiper :items="message"></swiper>
+    <fancybox :items="message2"></fancybox>
+</div>
+<div class="img">
+    <img data-lazyloadSrc="http://jgwlkj.cn/img/product1/show.jpg">
+</div>
 
 </body>
-<script src="js/jquery.js"></script>
-<script src="plugins/datetimepicker/datetimepicker.js"></script>
-<script src="plugins/jquery.validate/jquery.validate.js"></script>
-<script src="plugins/jqUi/jquery-ui.js"></script>
-<script src="plugins/tab/tab.js"></script>
-<script src="plugins/jquery.lazyload/jquery.lazyload.js"></script>
-<script src="plugins/modal/modal.js"></script>
-<script src="plugins/slider/slider.js"></script>
-<script src="js/common.js"></script>
-<script>
-    $(function() {
-
-
-        $('#commentForm').validate({
-            rules: validateRules
-        });
-
-        $('#commentForm').valid();
-        var w = new Window();
-
-        // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
-        // 注意tabs和panes与html中class的对应关系
-        $("ul.tabs").tabs("div.panes > div",{
-            tabs: "li",
-            event: "click",
-            current:'test',
-            initialEffect:"fade",
-            initialIndex:0
-        });
-
-        $("#trigger").tooltip();
-
-        $("#btn").click(function(){
-            w.alert({
-                content:"fuck",
-                title:'尼玛',
-                hasCloseBtn:true,
-                text4ConfirmBtn:'是',
-                text4CancelBtn:'否'
-            });
-        });
-
-
-        $('#slider').nivoSlider({
-            effect: "random",
-            animSpeed: 1000,
-            pauseTime: 6000,
-            controlNav: true,
-            keyboardNav: false,
-            captionOpacity: 0.4,
-            randomStart:true
-        });
-
-
-
-        //date
-        $('.form_datetime').datetimepicker({
-            weekStart: 1,
-            todayBtn:  1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            forceParse: 0,
-            showMeridian: 1
-        });
-        $('.form_date').datetimepicker({
-            weekStart: 1,
-            todayBtn:  1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            minView: 2,
-            forceParse: 0
-        });
-
-    });
-</script>
+<script src="js/require_config.js"></script>
+<script src="js/require.js" data-main="./page/document.js"></script>
 </html>
